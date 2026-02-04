@@ -12,6 +12,23 @@ import { useState } from 'react'
 //   );
 // }
 
+function Display(props) {
+
+  return (
+    <div>
+      {props.count}
+    </div>
+  );
+}
+
+function Button(props) {
+  return (
+    <button onClick={props.onClick}>
+      {props.text}
+    </button>
+  );
+}
+
 function App() {
 
   const [count, setCount] = useState(0);
@@ -29,22 +46,59 @@ function App() {
     setCount(0)
   }
 
-  // console.log('rendering...',count)
+  const handleDecrement = () => {
+    setCount(count => count - 1)
+  }
 
   return (
+
     <div>
-      <div>
-        {count}
-        <br />
-        <button onClick={handleClick}>
-          plus
-        </button>
-        <button onClick={handleReset}>
-          Reset
-        </button>
-      </div>
+      <Display count={count} />
+      <Button 
+        onClick={handleClick}
+        text='plus'
+      />
+      <Button 
+        onClick={handleReset}
+        text='Reset'
+      />
+      <Button
+        onClick={handleDecrement}
+        text='decrement'
+      />
     </div>
+
   );
+
+
+
+  //   <div>
+  //     <Display count={count} />
+  //     <button onClick={handleClick}>
+  //       plus
+  //     </button>
+  //     <button onClick={handleReset}>
+  //       Reset to Zero
+  //     </button>
+  //   </div>
+  // );
+
+  // console.log('rendering...',count)
+
+  // return (
+  //   <div>
+  //     <div>
+  //       {count}
+  //       <br />
+  //       <button onClick={handleClick}>
+  //         plus
+  //       </button>
+  //       <button onClick={handleReset}>
+  //         Reset
+  //       </button>
+  //     </div>
+  //   </div>
+  // );
 
   // const friends = [ 'Peter', 'Maya']
 
