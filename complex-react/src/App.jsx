@@ -26,12 +26,38 @@ function App() {
   return (
     <div>
       {left}
-      <button onClick={handleLeftClick}>Left</button>
-      <button onClick={handleRightClick}>Right</button>
+      <Button onClick={handleLeftClick} text='Left'/>
+      <Button onClick={handleRightClick} text='Right'/>
       {right}
-      <p>{allClicks.join(" ")}</p>
+      {/* <p>{allClicks.join(" ")}</p> */}
       <p>totalClicks: {total}</p>
+      <History allClicks={allClicks}/>
     </div>
+  );
+}
+
+function History(props) {
+  if(props.allClicks.length == 0) {
+    return (
+      <div>
+        The App is used by pressing the buttons
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      Button press history: {props.allClicks.join(' ')}
+    </div>
+  );
+}
+
+function Button({ onClick, text }) {
+
+  return (
+    <button onClick={onClick}>
+      {text}
+    </button>
   );
 }
 
