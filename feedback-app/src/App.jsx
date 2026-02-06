@@ -1,5 +1,15 @@
 import { useState } from "react";
 import "./App.css";
+
+function Statistics() {
+
+  return (
+    <div>
+      
+    </div>
+  );
+}
+
 function App() {
   return (
     <div>
